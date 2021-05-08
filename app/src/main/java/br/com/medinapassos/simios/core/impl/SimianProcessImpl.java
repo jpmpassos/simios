@@ -3,29 +3,34 @@ package br.com.medinapassos.simios.core.impl;
 import br.com.medinapassos.simios.commons.dto.enums.TypeSpeciesEnum;
 import br.com.medinapassos.simios.core.SimianProcess;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Slf4j
-@Service
+@Component
 public class SimianProcessImpl implements SimianProcess {
 
     @Override
     public TypeSpeciesEnum process(final List<String> list) {
-        int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (testVertical(list, i, 0)) count++;
-            if (testHorizontal(list, 0, i)) count++;
+        final long start = System.currentTimeMillis();
+        TypeSpeciesEnum typeSpeciesEnum = null;
+        try {
+            int count = 0;
+            for (int i = 0; i < list.size(); i++) {
+                if (testVertical(list, i, 0)) count++;
+                if (testHorizontal(list, 0, i)) count++;
 
-            if (testDiagonalUp(list, 0, i)) count++;
-            if (!(list.size() - (i + 1) < 3) && testDiagonalUp(list, i, list.size() - 1)) count++;
-            if (testDiagonalDown(list, i, 0)) count++;
-            if (testDiagonalDown(list, 0, i)) count++;
+                if (testDiagonalUp(list, 0, i)) count++;
+                if (!(list.size() - (i + 1) < 3) && testDiagonalUp(list, i, list.size() - 1)) count++;
+                if (testDiagonalDown(list, i, 0)) count++;
+                if (testDiagonalDown(list, 0, i)) count++;
+            }
+            typeSpeciesEnum = count >= 2 ? TypeSpeciesEnum.SIMIAN : TypeSpeciesEnum.HUMAN;
+            return typeSpeciesEnum;
+        } finally {
+            log.info("Tempo gasto para concluir que a Espécie é do tipo {}: {}ms", typeSpeciesEnum.name(), System.currentTimeMillis() - start);
         }
-
-        System.out.println(count);
-        return count >= 2 ? TypeSpeciesEnum.SIMIAN : TypeSpeciesEnum.HUMAN;
     }
 
     public boolean testVertical(final List<String> list, final int x, final int y) {
