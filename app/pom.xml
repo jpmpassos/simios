@@ -15,6 +15,7 @@
 	<description>Projeto teste de conhecimento</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<logaback.version>6.6</logaback.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +47,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>${logaback.version}</version>
 		</dependency>
 	</dependencies>
 
