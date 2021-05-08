@@ -3,14 +3,16 @@ package br.com.medinapassos.simios.core.impl;
 import br.com.medinapassos.simios.commons.dto.enums.TypeSpeciesEnum;
 import br.com.medinapassos.simios.core.SimianProcess;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Slf4j
+@Service
 public class SimianProcessImpl implements SimianProcess {
 
     @Override
-    public TypeSpeciesEnum process(List<String> list) {
+    public TypeSpeciesEnum process(final List<String> list) {
         int count = 0;
         for (int i = 0; i < list.size(); i++) {
             if (testVertical(list, i, 0)) count++;
@@ -30,13 +32,13 @@ public class SimianProcessImpl implements SimianProcess {
         if (list.size() - (y + 1) < 3)
             return false;
 
-        String pivor = list.get(x).substring(y, y + 1);
+        final String pivor = list.get(x).substring(y, y + 1);
 
         int yAux = y + 1;
         int count = 0;
         String strAux;
 
-        Boolean fim = true;
+        final Boolean fim = true;
         while (fim) {
             if (yAux == list.size()) {
                 return false;
@@ -61,13 +63,13 @@ public class SimianProcessImpl implements SimianProcess {
         if (list.size() - (x + 1) < 3)
             return false;
 
-        String pivor = list.get(x).substring(y, y + 1);
+        final String pivor = list.get(x).substring(y, y + 1);
 
         int xAux = x + 1;
 
         int count = 0;
         String strAux;
-        Boolean fim = true;
+        final Boolean fim = true;
         while (fim) {
             if (xAux == list.size()) {
                 return false;
@@ -92,9 +94,9 @@ public class SimianProcessImpl implements SimianProcess {
         if ((y + 1 < 4) || (list.size() - (x + 1) < 3))
             return false;
 
-        Boolean fim = true;
+        final Boolean fim = true;
 
-        String pivor = list.get(y).substring(x, x + 1);
+        final String pivor = list.get(y).substring(x, x + 1);
 
         int xAux = x + 1;
         int yAux = y - 1;
@@ -127,14 +129,14 @@ public class SimianProcessImpl implements SimianProcess {
         if ((list.size() - (x + 1) < 4) || (list.size() - (y + 1) < 4))
             return false;
 
-        String pivor = list.get(y).substring(x, x + 1);
+        final String pivor = list.get(y).substring(x, x + 1);
 
         int xAux = x + 1;
         int yAux = y + 1;
 
         int count = 0;
         String strAux;
-        Boolean fim = true;
+        final Boolean fim = true;
         while (fim) {
             if (xAux == list.size() || yAux == list.size()) {
                 return false;

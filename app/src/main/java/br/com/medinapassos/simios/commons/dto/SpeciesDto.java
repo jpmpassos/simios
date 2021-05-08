@@ -13,6 +13,8 @@ import java.util.List;
 public class SpeciesDto {
     @JsonProperty("dna")
     private List<String> dna;
+    @JsonProperty("id")
+    private int id;
     @JsonIgnoreProperties
     private TypeSpeciesEnum typeSpecies;
 }
