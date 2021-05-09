@@ -4,6 +4,19 @@ spring:
   profiles:
     active:
       - local
+  jpa:
+    database: postgresql
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_simios
+    username: simiosuser
+    password: 123
+    platform: postgresql
+  show-sql: true
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
 
 server:
   port: 8080
+
