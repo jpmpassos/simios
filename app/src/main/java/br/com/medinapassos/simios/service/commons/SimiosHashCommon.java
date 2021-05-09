@@ -1,10 +1,19 @@
 package br.com.medinapassos.simios.service.commons;
 
-import java.util.List;
-import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
+import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
+
+@Slf4j
 public class SimiosHashCommon {
-    public static int hashGenerator(final List<String> dna) {
-        return Objects.hash(dna.toArray());
+
+    public static String hashGenerator(final List<String> dna) {
+        final int hash = dna.hashCode();
+        log.info("Hash da lista DNA = {}", hash);
+        final String sharIdentificator = sha256Hex(String.valueOf(hash));
+        log.info("Identificador do DNA = {}", sharIdentificator);
+        return sharIdentificator;
     }
 }

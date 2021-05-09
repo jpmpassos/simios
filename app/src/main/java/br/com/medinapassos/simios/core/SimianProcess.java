@@ -1,6 +1,6 @@
 package br.com.medinapassos.simios.core;
 
-import br.com.medinapassos.simios.commons.dto.enums.TypeSpeciesEnum;
+import br.com.medinapassos.simios.persistense.entity.enums.TypeSpeciesEnum;
 
 import java.util.List;
 

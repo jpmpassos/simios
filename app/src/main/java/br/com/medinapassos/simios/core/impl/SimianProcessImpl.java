@@ -1,7 +1,7 @@
 package br.com.medinapassos.simios.core.impl;
 
-import br.com.medinapassos.simios.commons.dto.enums.TypeSpeciesEnum;
 import br.com.medinapassos.simios.core.SimianProcess;
+import br.com.medinapassos.simios.persistense.entity.enums.TypeSpeciesEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

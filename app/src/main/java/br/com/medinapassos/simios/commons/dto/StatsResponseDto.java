@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Data
 @Builder
@@ -14,9 +15,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class StatsResponseDto {
     @JsonProperty("count_simian_dna")
-    private int countSimianDna;
+    private BigInteger countSimianDna;
     @JsonProperty("count_human_dna")
-    private int countHumanDna;
+    private BigInteger countHumanDna;
     @JsonProperty("ratio")
     private BigDecimal ratio;
 }
