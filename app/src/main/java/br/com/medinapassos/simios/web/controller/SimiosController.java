@@ -6,7 +6,6 @@ import br.com.medinapassos.simios.service.SimiosService;
 import br.com.medinapassos.simios.web.validation.SimiosValidate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +34,6 @@ public class SimiosController {
         final ResponseDto response = simiosService.save(speciesDto);
 
         log.info("stage=end inserção de uma espécie.", keyValue("response", response));
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return ResponseEntity.ok().body(response);
     }
 }
