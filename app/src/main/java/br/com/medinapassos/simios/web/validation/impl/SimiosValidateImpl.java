@@ -14,7 +14,7 @@ public class SimiosValidateImpl implements SimiosValidate {
 
     @Override
     public void validete(final SpeciesDto speciesDto) {
-        final long start = System.currentTimeMillis();
+        final var start = System.currentTimeMillis();
         try {
             speciesDto.getDna().forEach((dna) -> {
                 validateDNA(dna);

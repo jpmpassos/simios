@@ -29,7 +29,7 @@ public class SimiosController {
 
         simiosValidate.validete(speciesDto);
 
-        final ResponseDto response = simiosService.save(speciesDto);
+        final var response = simiosService.save(speciesDto);
 
         log.info("stage=end inserção de uma espécie.", keyValue("response", response));
         return ResponseEntity.ok().body(response);
@@ -40,7 +40,7 @@ public class SimiosController {
     public ResponseEntity<StatsResponseDto> getStats() {
         log.info("stage=init pesquisa da estatística dos simios.");
 
-        final StatsResponseDto response = simiosService.getStats();
+        final var response = simiosService.getStats();
 
         log.info("stage=end pesquisa da estatística dos simios.", keyValue("response", response));
         return ResponseEntity.ok().body(response);

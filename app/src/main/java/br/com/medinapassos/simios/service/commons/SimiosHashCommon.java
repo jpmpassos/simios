@@ -10,9 +10,9 @@ import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
 public class SimiosHashCommon {
 
     public static String hashGenerator(final List<String> dna) {
-        final int hash = dna.hashCode();
+        final var hash = dna.hashCode();
         log.info("Hash da lista DNA = {}", hash);
-        final String sharIdentificator = sha256Hex(String.valueOf(hash));
+        final var sharIdentificator = sha256Hex(String.valueOf(hash));
         log.info("Identificador do DNA = {}", sharIdentificator);
         return sharIdentificator;
     }

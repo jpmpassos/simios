@@ -14,7 +14,7 @@ public class SimiosValidateCommons {
     private static final String DNA_STR = "ATCG";
 
     public static void validateDNA(final String value) {
-        final char[] arrayStr = value.toCharArray();
+        final var arrayStr = value.toCharArray();
         for (int i = 0; i < arrayStr.length; i++) {
             if (!containsIgnoreCase(DNA_STR, String.valueOf(arrayStr[i]))) {
                 throwException(DIVERGENT_DNA);

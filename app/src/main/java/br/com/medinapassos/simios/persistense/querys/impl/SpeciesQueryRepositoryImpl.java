@@ -5,7 +5,6 @@ import br.com.medinapassos.simios.persistense.querys.SpeciesQueryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.Optional;
 
@@ -19,8 +18,8 @@ public class SpeciesQueryRepositoryImpl implements SpeciesQueryRepository {
 
     @Override
     public Optional<StatsDto> statsQuery() {
-        final EntityManager entityManager = entityManagerFactory.createEntityManager();
-        final StringBuffer buffer = new StringBuffer();
+        final var entityManager = entityManagerFactory.createEntityManager();
+        final var buffer = new StringBuffer();
 
         try {
             entityManager.getTransaction().begin();
@@ -29,7 +28,7 @@ public class SpeciesQueryRepositoryImpl implements SpeciesQueryRepository {
             buffer.append("         sum(CASE WHEN type_species = 'SIMIAN' THEN 1 ELSE 0 END ) as count_simian_dna ");
             buffer.append("    FROM species ");
 
-            final Object[] objects = (Object[]) entityManager.createNativeQuery(buffer.toString()).getSingleResult();
+            final var objects = (Object[]) entityManager.createNativeQuery(buffer.toString()).getSingleResult();
 
             entityManager.getTransaction().commit();
             return process(objects);

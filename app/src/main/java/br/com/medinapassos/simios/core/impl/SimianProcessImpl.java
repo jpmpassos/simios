@@ -13,7 +13,7 @@ public class SimianProcessImpl implements SimianProcess {
 
     @Override
     public TypeSpeciesEnum process(final List<String> list) {
-        final long start = System.currentTimeMillis();
+        final var start = System.currentTimeMillis();
         TypeSpeciesEnum typeSpeciesEnum = null;
         try {
             int count = 0;

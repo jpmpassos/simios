@@ -27,7 +27,7 @@ public class SpeciesMapperImpl implements SpeciesMapper {
     @Override
     public StatsResponseDto toStatsResponseDto(final StatsDto statsDto) {
 
-        final BigDecimal ratio = BigDecimal.valueOf(
+        final var ratio = BigDecimal.valueOf(
                 statsDto.getCountSimianDna().intValue())
                 .multiply(BigDecimal.valueOf(100))
                 .divide(BigDecimal.valueOf(statsDto.getCountHumanDna().intValue()), 2, RoundingMode.HALF_UP);

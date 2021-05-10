@@ -37,7 +37,7 @@ public class SimiosServiceImpl implements SimiosService {
     @Override
     public ResponseDto save(final SpeciesDto speciesDto) {
 
-        final SpeciesEntity speciesEntity = speciesMapper.toEntity(speciesDto);
+        final var speciesEntity = speciesMapper.toEntity(speciesDto);
 
         speciesEntity.setTypeSpecies(simianProcess.process(speciesDto.getDna()));
         speciesEntity.setIdentificator(hashGenerator(speciesDto.getDna()));
