@@ -169,7 +169,7 @@ override.tf.json
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
 
-# End of https://www.toptal.com/developers/gitignore/api/terraform
+
 /infra/terraform/key/simios_key
 /infra/terraform/key/simios_key.pub
 /infra/terraform/key/simios_key2
