@@ -8,9 +8,9 @@ spring:
     database: postgresql
     properties.hibernate.jdbc.lob.non_contextual_creation: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_simios
+    url: jdbc:postgresql://localhost:5432/simios
     username: simiosuser
-    password: 123
+    password: admin123
     platform: postgresql
   show-sql: true
   jackson:
