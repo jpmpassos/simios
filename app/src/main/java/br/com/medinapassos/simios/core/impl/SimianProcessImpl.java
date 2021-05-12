@@ -50,11 +50,9 @@ public class SimianProcessImpl implements SimianProcess {
             }
             strAux = list.get(x).substring(yAux, yAux + 1);
             if (pivor.equals(strAux)) {
-                log.info("Vertival -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(x)).concat("x").concat(String.valueOf(yAux))).concat(" -> igual"));
                 count++;
                 yAux++;
             } else {
-                log.info("Vertival -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(x)).concat("x").concat(String.valueOf(yAux))).concat(" -> diferente"));
                 return testVertical(list, x, yAux);
             }
             if (count == 3) {
@@ -81,11 +79,9 @@ public class SimianProcessImpl implements SimianProcess {
             }
             strAux = list.get(xAux).substring(y, y + 1);
             if (pivor.equals(strAux)) {
-                log.info("Horizontal -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(y)).concat(" -> igual")));
                 count++;
                 xAux++;
             } else {
-                log.info("Horizontal -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(y)).concat(" -> diferente")));
                 return testHorizontal(list, xAux, y);
             }
             if (count == 3) {
@@ -115,12 +111,10 @@ public class SimianProcessImpl implements SimianProcess {
             strAux = list.get(yAux).substring(xAux, xAux + 1);
 
             if (pivor.equals(strAux)) {
-                log.info("DiagonalUp -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(yAux))).concat(" - igual"));
                 count++;
                 xAux++;
                 yAux--;
             } else {
-                log.info("DiagonalUp -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(yAux))).concat(" - difrente"));
                 return testDiagonalUp(list, xAux, yAux);
             }
             if (count == 3) {
@@ -148,12 +142,10 @@ public class SimianProcessImpl implements SimianProcess {
             }
             strAux = list.get(yAux).substring(xAux, xAux + 1);
             if (pivor.equals(strAux)) {
-                log.info("DiagonalDown -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(yAux))).concat(" - igual"));
                 count++;
                 xAux++;
                 yAux++;
             } else {
-                log.info("DiagonalDown -> pivor: ".concat(pivor).concat(String.valueOf(x)).concat("x").concat(String.valueOf(y)).concat(" ---- strAux: ".concat(strAux).concat(String.valueOf(xAux)).concat("x").concat(String.valueOf(yAux))).concat(" - difrente"));
                 return testDiagonalDown(list, xAux, yAux);
             }
             if (count == 3) {

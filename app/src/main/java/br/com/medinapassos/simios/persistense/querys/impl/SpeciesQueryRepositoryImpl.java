@@ -5,6 +5,8 @@ import br.com.medinapassos.simios.persistense.querys.SpeciesQueryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.Optional;
 
@@ -16,9 +18,16 @@ public class SpeciesQueryRepositoryImpl implements SpeciesQueryRepository {
     @Autowired
     private EntityManagerFactory entityManagerFactory;
 
+    private EntityManager entityManager;
+
+    @PostConstruct
+    private void postConstruct() {
+        entityManager = entityManagerFactory.createEntityManager();
+    }
+
     @Override
     public Optional<StatsDto> statsQuery() {
-        final var entityManager = entityManagerFactory.createEntityManager();
+
         final var buffer = new StringBuffer();
 
         try {
