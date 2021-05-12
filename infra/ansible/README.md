@@ -19,7 +19,7 @@ http://<ip_do_ec2_manager>:9000
 
 Agora dentro do EC2 devemos rodar o comando para criar nosso container da aplicação no docker swarn.
 ```markdown
-sudo docker service create --name simios -e SPRING_DATASOURCE_URL=jdbc:postgresql://URL_DO_RDS_DA_SUA_CONTA:5432/simios 
+sudo docker service create --name simios -e APP_OPTIONS='jdbc:postgresql://URL_DO_RDS_DA_SUA_CONTA:5432/simios' 
      -p 8080:8080 --network service <NOME_IMAGEM>:<VERSAO>
 ```
 

@@ -41,4 +41,4 @@ jpmpassos/simios:0.1
 ```
 
 Obs: Deve-se lembrar que o --rm deve ser usado apenas para desenvolvimento, pois o mesmo remove o container após
-finalizar.
+finalizar. Também deve adicionar o -d para não finalizar o container quando sair do shell.
