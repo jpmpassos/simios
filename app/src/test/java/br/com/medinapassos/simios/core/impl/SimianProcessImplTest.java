@@ -23,7 +23,7 @@ class SimianProcessImplTest {
 
     @Test
     void testVertical2() {
-        final var list = List.of("CTTTTF", "CTATGC", "TATTGT", "AGAGGG", "CCCCTA", "TCACTG");
+        final var list = List.of("CTCTTF", "CTATGC", "TATTGT", "AGAGGG", "CCCCTA", "TCACTG");
 
         final var speciesDto = SpeciesDto.builder().dna(list).build();
         final var typeSpeciesEnum = simianProcess.process(list);
