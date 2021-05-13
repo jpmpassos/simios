@@ -27,27 +27,18 @@ public class SpeciesQueryRepositoryImpl implements SpeciesQueryRepository {
 
     @Override
     public Optional<StatsDto> statsQuery() {
-
         final var buffer = new StringBuffer();
-
         try {
-            entityManager.getTransaction().begin();
-
             buffer.append("  SELECT sum(CASE WHEN type_species = 'HUMAN' THEN 1 ELSE 0 END ) as count_human_dna, ");
             buffer.append("         sum(CASE WHEN type_species = 'SIMIAN' THEN 1 ELSE 0 END ) as count_simian_dna ");
             buffer.append("    FROM species ");
 
             final var objects = (Object[]) entityManager.createNativeQuery(buffer.toString()).getSingleResult();
 
-            entityManager.getTransaction().commit();
             return process(objects);
         } catch (final Exception e) {
-            entityManager.getTransaction().rollback();
             log.error("Erro ao realizar consulta.", e);
             return Optional.empty();
-        } finally {
-            entityManager.close();
         }
-
     }
 }
